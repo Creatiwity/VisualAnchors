@@ -1,0 +1,6 @@
+framework module VisualAnchors {
+  umbrella header "VisualAnchors-umbrella.h"
+
+  export *
+  module * { export * }
+}
