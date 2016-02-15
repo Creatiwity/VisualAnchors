@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VisualAnchors
 
 class ViewController: UIViewController {
 
@@ -17,7 +18,9 @@ class ViewController: UIViewController {
         let greenView = UIView()
         greenView.backgroundColor = UIColor.greenColor()
         
-        //greenView.anchors.fill = view.anchors.fill
+        let group = AnchorGroup()
+        
+        greenView.anchors.fill = view.anchors.fill
     }
 
     override func didReceiveMemoryWarning() {

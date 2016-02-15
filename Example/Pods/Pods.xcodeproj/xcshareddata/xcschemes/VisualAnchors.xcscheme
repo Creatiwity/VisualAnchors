@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '01F3E2A437C1191E58245630'
+               BlueprintIdentifier = '00050B1ACD663CCE8F723F2C'
                BlueprintName = 'VisualAnchors'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'VisualAnchors.framework'>
