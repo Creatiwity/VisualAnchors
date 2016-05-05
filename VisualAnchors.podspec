@@ -8,14 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = "VisualAnchors"
-  s.version          = "0.1.0"
-  s.summary          = "An easier way to programmatically use constraints in Swift with iOS7+."
+  s.version          = "1.0.0"
+  s.summary          = "An easier way to programmatically use constraints in Swift with iOS8+."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
+
   s.description      = <<-DESC
 VisualAnchors is a library that aims to allow developers to programmatically use constraints in an easier way than the officially-documented way.
 
@@ -29,13 +30,15 @@ It extends UIView by adding an attribute containing the anchors of the view (lea
   s.source           = { :git => "https://github.com/Creatiwity/VisualAnchors.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/CreatiwitySAS'
 
-  s.platform     = :ios, '8.0'
-  s.requires_arc = true
+  s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Pod/Classes/**/*.{swift}'
-  s.resource_bundles = {
-    'VisualAnchors' => ['Pod/Assets/*.png']
-  }
+  s.source_files = 'VisualAnchors/Classes/**/*'
 
-  s.framework = 'UIKit'
+  # s.resource_bundles = {
+  #   'VisualAnchors' => ['VisualAnchors/Assets/*.png']
+  # }
+
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit'
+  # s.dependency 'AFNetworking', '~> 2.3'
 end
