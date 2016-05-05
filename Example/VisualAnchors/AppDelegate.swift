@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  VisualAnchors
 //
-//  Created by Julien Blatecky on 11/06/2015.
-//  Copyright (c) 2015 Julien Blatecky. All rights reserved.
+//  Created by Julien Blatecky on 05/05/2016.
+//  Copyright (c) 2016 Julien Blatecky. All rights reserved.
 //
 
 import UIKit
