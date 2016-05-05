@@ -6,7 +6,7 @@
 //  Copyright © 2015 Creatiwity. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIView
 {
