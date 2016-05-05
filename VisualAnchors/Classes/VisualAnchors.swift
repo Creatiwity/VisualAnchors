@@ -3,7 +3,7 @@
 //  VisualAnchors
 //
 //  Created by Julien Blatecky on 05/11/2015.
-//  Copyright © 2015 Creatiwity. All rights reserved.
+//  Copyright © 2016 Creatiwity. All rights reserved.
 //
 import UIKit
 
@@ -59,7 +59,7 @@ public extension UIView
 
 public class AnchorGroup {
     let parent: UIView
-    
+
     /// The centerX anchor, corresponding to the `NSLayoutAttribute.CenterX` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
@@ -94,7 +94,7 @@ public class AnchorGroup {
             bindAnchors(center, anchor2: anchors)
         }
     }
-    
+
     /// The top anchor, corresponding to the `NSLayoutAttribute.Top` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
@@ -153,7 +153,7 @@ public class AnchorGroup {
             bindAnchors(fill, anchor2: anchors)
         }
     }
-    
+
     /// The width anchor, corresponding to the `NSLayoutAttribute.Width` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
@@ -176,12 +176,12 @@ public class AnchorGroup {
             bindAnchors(height, anchor2: anchor)
         }
     }
-    
+
     internal init(view: UIView)
     {
         parent = view
     }
-    
+
     private func bindAnchors(anchor1: Anchor, anchor2: Anchor)
     {
         if let commonAncestor = findCommonAncestor(anchor1, anchor2: anchor2)
@@ -193,7 +193,7 @@ public class AnchorGroup {
                 if (anchors1.count == anchors2.count)
                 {
                     var index = 0
-                    
+
                     for anchor1 in anchors1
                     {
                         anchor2.copyTo(anchors2[index])
@@ -237,7 +237,7 @@ public class AnchorGroup {
             }
         }
     }
-    
+
     private func createConstraintWithAncestor(ancestor: UIView, anchor1: Anchor, anchor2: Anchor)
     {
         let constraint = NSLayoutConstraint(item: parent, attribute: anchor1.attribute, relatedBy: anchor2.relation, toItem: anchor2.group?.parent, attribute: anchor2.attribute, multiplier: CGFloat(anchor2.multiplier), constant: CGFloat(anchor2.constant))
@@ -245,7 +245,7 @@ public class AnchorGroup {
         constraint.priority = anchor2.priority
         ancestor.addConstraint(constraint)
     }
-    
+
     private func findCommonAncestor(anchor1: Anchor, anchor2: Anchor) -> UIView?
     {
         if let commonAncestor = anchor2.commonAncestor
@@ -273,18 +273,18 @@ public class AnchorGroup {
         {
             return parent
         }
-        
+
         return nil
     }
-    
+
     private func findConstraintWithAncestor(commonAncestor: UIView, anchor1: Anchor, anchor2: Anchor) -> (constraint: NSLayoutConstraint, reversed: Bool)?
     {
         var reversed = false
-        
+
         if let constraintIndex = commonAncestor.constraints.indexOf({
             let sameFirst: Bool = $0.firstItem as? UIView == self.parent && $0.firstAttribute == anchor1.attribute
             let sameSecond: Bool = $0.secondItem as? UIView == anchor2.group?.parent && $0.secondAttribute == anchor2.attribute
-            
+
             if !(sameFirst && sameSecond)
             {
                 let sameFirstReversed: Bool = $0.firstItem as? UIView == anchor2.group?.parent && $0.firstAttribute == anchor2.attribute
@@ -317,27 +317,27 @@ public class Anchor {
     internal var relation: NSLayoutRelation = .Equal
     internal var priority: Float = 1000
     internal var reset: Bool = false
-    
+
     internal var anchors: [Anchor]?
-    
+
     internal init(group: AnchorGroup, attribute: NSLayoutAttribute)
     {
         self.group = group
         self.attribute = attribute
     }
-    
+
     private init(group: AnchorGroup, anchors: [Anchor])
     {
         self.group = group
         self.anchors = anchors
         self.attribute = .NotAnAttribute
     }
-    
+
     private init()
     {
         self.attribute = .NotAnAttribute
     }
-    
+
     private func copyTo(anchor: Anchor)
     {
         anchor.constant = anchor.attribute == .Trailing || anchor.attribute == .Bottom ? -constant : constant
@@ -347,7 +347,7 @@ public class Anchor {
         anchor.priority = priority
         anchor.reset = reset
     }
-    
+
     /// Sets the first common ancestor that will be used to update the constraint.
     ///
     /// - note: If the common ancestor is the direct superview of both views, you don't need to call this method
@@ -361,7 +361,7 @@ public class Anchor {
         commonAncestor = ancestor
         return self
     }
-    
+
     /// Sets the constraint's relation to .Equal.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
@@ -379,7 +379,7 @@ public class Anchor {
         relation = .Equal
         return self
     }
-    
+
     /// Sets the constraint's relation to .GreaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
@@ -397,7 +397,7 @@ public class Anchor {
         relation = .GreaterThanOrEqual
         return self
     }
-    
+
     /// Sets the constraint's relation to .GreaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
@@ -415,7 +415,7 @@ public class Anchor {
         relation = .LessThanOrEqual
         return self
     }
-    
+
     /// Sets the constraint's priority.
     ///
     /// Priority always defaults to 1000.
@@ -430,7 +430,7 @@ public class Anchor {
         self.priority = priority
         return self
     }
-    
+
     /// Prepares the constraint to be removed.
     ///
     /// - seealso: `removeConstraint` method from `UIView`.
@@ -441,7 +441,7 @@ public class Anchor {
         self.reset = true
         return self
     }
-    
+
     /// An anchor used to set constant width or height constraint.
     ///
     /// This anchor is used when there is no second `UIView` to use in the constraint relationship.
