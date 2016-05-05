@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A916BB69D45F08942C6B1CA4B063851 /* VisualAnchors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2F5E6BA56BA42A52BAE624332AD1EF /* VisualAnchors-dummy.m */; };
 		1C89D527713088C85357A7880000DF59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		32E17C66F94B76C9D8BD28674EC04E6E /* VisualAnchors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2F5E6BA56BA42A52BAE624332AD1EF /* VisualAnchors-dummy.m */; };
 		3A73DD34777DC4D1132ED2825729ECD3 /* Pods-VisualAnchors_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C26D27BAF110B8C102A6AA6FAFF598 /* Pods-VisualAnchors_Tests-dummy.m */; };
 		5F3A38D5471DE76997BFA790B5C25279 /* Pods-VisualAnchors_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBF4F816CF7F026BD0AEF6AC930B363 /* Pods-VisualAnchors_Example-dummy.m */; };
 		720B5E2FCB45E45FDDB829C5794C5ED4 /* VisualAnchors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 27B9BED5E11D27ECAFD4E1255EDC61E6 /* VisualAnchors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91A07D285F39BDECE8D2899AA94558E7 /* VisualAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABA322042E4EB99BE2F10C4555E13E /* VisualAnchors.swift */; };
+		839B0B60C8A20D5DFD580561DCA89485 /* VisualAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFE85E1FA8A0F0F25572F0EC5AB0183 /* VisualAnchors.swift */; };
 		AB6A94C4D9D56B11BA7A758BAECE297A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		C7113BCDBC3A5A0380B963C920E173BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		E06EAC677EF214DC9054F4F212739145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
@@ -45,7 +45,6 @@
 		8814B3939A9CBFDA0DAEB012CD20E42F /* VisualAnchors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VisualAnchors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B98F7D382C53E52FDCF86B6562B5203 /* Pods-VisualAnchors_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VisualAnchors_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8BECDD4F25305C90C6D7C86DA31C01D0 /* Pods-VisualAnchors_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VisualAnchors_Example-frameworks.sh"; sourceTree = "<group>"; };
-		8EABA322042E4EB99BE2F10C4555E13E /* VisualAnchors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisualAnchors.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98B311C80BF626B4E3852322F2BC68F5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99986681AC4005374D63337ED91AC05C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		E0FAAC34C0D63B81166084214917E90A /* Pods-VisualAnchors_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VisualAnchors_Tests.modulemap"; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FFBF4F816CF7F026BD0AEF6AC930B363 /* Pods-VisualAnchors_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VisualAnchors_Example-dummy.m"; sourceTree = "<group>"; };
+		FFFE85E1FA8A0F0F25572F0EC5AB0183 /* VisualAnchors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisualAnchors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,14 +113,6 @@
 			path = "Target Support Files/Pods-VisualAnchors_Tests";
 			sourceTree = "<group>";
 		};
-		115E0865B7609597A08342A3EBC7CAA9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8EABA322042E4EB99BE2F10C4555E13E /* VisualAnchors.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		13C9B11958C978FC30E7E4887BF80C72 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +158,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4892B748064B063B6C3DAAFC51534A82 /* VisualAnchors */ = {
+			isa = PBXGroup;
+			children = (
+				A70990B2788BE3E64068F035E80275E5 /* Classes */,
+			);
+			path = VisualAnchors;
+			sourceTree = "<group>";
+		};
 		6B10475F399DA9A27709D42D66BDC5F6 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,18 +203,18 @@
 			isa = PBXGroup;
 			children = (
 				89D6B575285918A102091E98553601DD /* Support Files */,
-				9506FB287085AED3F4D0F93480B9940B /* VisualAnchors */,
+				4892B748064B063B6C3DAAFC51534A82 /* VisualAnchors */,
 			);
 			name = VisualAnchors;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		9506FB287085AED3F4D0F93480B9940B /* VisualAnchors */ = {
+		A70990B2788BE3E64068F035E80275E5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				115E0865B7609597A08342A3EBC7CAA9 /* Classes */,
+				FFFE85E1FA8A0F0F25572F0EC5AB0183 /* VisualAnchors.swift */,
 			);
-			path = VisualAnchors;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
@@ -277,7 +277,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B96767F89E63080F08E980280AC93E /* Build configuration list for PBXNativeTarget "VisualAnchors" */;
 			buildPhases = (
-				6206DD99EBDDE9D8EA782E2DC4A4DD9A /* Sources */,
+				12CD2C240DAC87F9210F3BB2F5320884 /* Sources */,
 				D63E90E8F4AD1BC030157EE81C78112B /* Frameworks */,
 				1A3DEB7C274FC8A93F32AB6E8BEF18DE /* Headers */,
 			);
@@ -337,12 +337,12 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6206DD99EBDDE9D8EA782E2DC4A4DD9A /* Sources */ = {
+		12CD2C240DAC87F9210F3BB2F5320884 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32E17C66F94B76C9D8BD28674EC04E6E /* VisualAnchors-dummy.m in Sources */,
-				91A07D285F39BDECE8D2899AA94558E7 /* VisualAnchors.swift in Sources */,
+				1A916BB69D45F08942C6B1CA4B063851 /* VisualAnchors-dummy.m in Sources */,
+				839B0B60C8A20D5DFD580561DCA89485 /* VisualAnchors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
