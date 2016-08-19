@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "VisualAnchors"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "An easier way to programmatically use constraints in Swift with iOS8+."
 
 # This description is used to generate tags and improve search results.
