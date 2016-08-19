@@ -214,7 +214,12 @@ public class AnchorGroup {
                 }
                 else
                 {
-                    if let (constraint, reversed) = findConstraintWithAncestor(commonAncestor, anchor1: anchor1, anchor2: anchor2)
+                    if anchor2.creation
+                    {
+                        // Create new constraint (optimized path)
+                        createConstraintWithAncestor(commonAncestor, anchor1: anchor1, anchor2: anchor2)
+                    }
+                    else if let (constraint, reversed) = findConstraintWithAncestor(commonAncestor, anchor1: anchor1, anchor2: anchor2)
                     {
                         if reversed || constraint.relation != anchor2.relation || constraint.multiplier != CGFloat(anchor2.multiplier) || constraint.priority != anchor2.priority
                         {
@@ -317,6 +322,7 @@ public class Anchor {
     internal var relation: NSLayoutRelation = .Equal
     internal var priority: Float = 1000
     internal var reset: Bool = false
+    internal var creation: Bool = false
 
     internal var anchors: [Anchor]?
 
@@ -346,6 +352,7 @@ public class Anchor {
         anchor.relation = relation
         anchor.priority = priority
         anchor.reset = reset
+        anchor.creation = creation
     }
 
     /// Sets the first common ancestor that will be used to update the constraint.
@@ -439,6 +446,15 @@ public class Anchor {
     public func remove() -> Anchor
     {
         self.reset = true
+        return self
+    }
+    
+    /// Optimize the constraint to be created.
+    ///
+    /// - returns: The anchor to allow chainable calls
+    public func create() -> Anchor
+    {
+        self.creation = true
         return self
     }
 
