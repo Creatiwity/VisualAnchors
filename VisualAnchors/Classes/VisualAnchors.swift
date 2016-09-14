@@ -38,11 +38,11 @@ public extension UIView
     ///
     /// If you want to set the width of the `view` to 40:
     ///
-    ///     view.anchors.width = 40 + Anchor.Myself
+    ///     view.anchors.width = 40 + Anchor.myself
     ///
     /// If you want to remove the previous constraint:
     ///
-    ///     view.anchors.width = Anchor.Myself.remove()
+    ///     view.anchors.width = Anchor.myself.remove()
     ///
     /// If you want to fill `view2` with `view1` with a margin of 15 all around `view1`, when `view1` is a subview of `view2`:
     ///
@@ -245,7 +245,16 @@ open class AnchorGroup {
 
     fileprivate func createConstraintWithAncestor(_ ancestor: UIView, anchor1: Anchor, anchor2: Anchor)
     {
-        let constraint = NSLayoutConstraint(item: parent, attribute: anchor1.attribute, relatedBy: anchor2.relation, toItem: anchor2.group?.parent, attribute: anchor2.attribute, multiplier: CGFloat(anchor2.multiplier), constant: CGFloat(anchor2.constant))
+        let constraint = NSLayoutConstraint(
+            item: parent,
+            attribute: anchor1.attribute,
+            relatedBy: anchor2.relation,
+            toItem: anchor2.group?.parent,
+            attribute: anchor2.attribute,
+            multiplier: CGFloat(anchor2.multiplier),
+            constant: CGFloat(anchor2.constant)
+        )
+        
         parent.translatesAutoresizingMaskIntoConstraints = false
         constraint.priority = anchor2.priority
         ancestor.addConstraint(constraint)
@@ -369,14 +378,14 @@ open class Anchor {
         return self
     }
 
-    /// Sets the constraint's relation to .Equal.
+    /// Sets the constraint's relation to .equal.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
@@ -387,14 +396,14 @@ open class Anchor {
         return self
     }
 
-    /// Sets the constraint's relation to .GreaterThanOrEqual.
+    /// Sets the constraint's relation to .greaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
@@ -405,14 +414,14 @@ open class Anchor {
         return self
     }
 
-    /// Sets the constraint's relation to .GreaterThanOrEqual.
+    /// Sets the constraint's relation to .greaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
@@ -464,9 +473,9 @@ open class Anchor {
     ///
     /// For instance, if you want to set the width of the `UIView` to 40:
     ///     // Set the width to 40
-    ///     view.anchors.width = 40 + Anchor.Myself
+    ///     view.anchors.width = 40 + Anchor.myself
     ///
-    open static var Myself: Anchor {return Anchor()}
+    open static var myself: Anchor {return Anchor()}
 }
 
 public func +(anchor: Anchor, constant: Double) -> Anchor
