@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let greenView = UIView()
-        greenView.backgroundColor = UIColor.green
+        greenView.backgroundColor = .green
         
         // Must be done before adding constraints
         view.addSubview(greenView)
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         greenView.anchors.fill = 10 + view.anchors.fill.ancestor(view)
         
         let redView = UIView()
-        redView.backgroundColor = UIColor.red
+        redView.backgroundColor = .red
         greenView.addSubview(redView)
         
         // Centers redView in greenView
