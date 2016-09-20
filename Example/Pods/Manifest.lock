@@ -1,5 +1,5 @@
 PODS:
-  - VisualAnchors (1.2.0.beta.1)
+  - VisualAnchors (2.0.0)
 
 DEPENDENCIES:
   - VisualAnchors (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  VisualAnchors: 78bb9a27a6a8ea19a994354f0236bb7243acd925
+  VisualAnchors: 1cc1df2c050d46ee20f89490ff51b640d4ef1434
 
 PODFILE CHECKSUM: 38c878b39290127109419ce0abcd853c0d9f9cd6
 
