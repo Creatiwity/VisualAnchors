@@ -38,11 +38,11 @@ public extension UIView
     ///
     /// If you want to set the width of the `view` to 40:
     ///
-    ///     view.anchors.width = 40 + Anchor.Myself
+    ///     view.anchors.width = 40 + Anchor.myself
     ///
     /// If you want to remove the previous constraint:
     ///
-    ///     view.anchors.width = Anchor.Myself.remove()
+    ///     view.anchors.width = Anchor.myself.remove()
     ///
     /// If you want to fill `view2` with `view1` with a margin of 15 all around `view1`, when `view1` is a subview of `view2`:
     ///
@@ -57,15 +57,15 @@ public extension UIView
     }
 }
 
-public class AnchorGroup {
+open class AnchorGroup {
     let parent: UIView
 
     /// The centerX anchor, corresponding to the `NSLayoutAttribute.CenterX` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var centerX: Anchor {
+    open var centerX: Anchor {
         get {
-            return Anchor(group: self, attribute: .CenterX)
+            return Anchor(group: self, attribute: .centerX)
         }
         set(anchor) {
             bindAnchors(centerX, anchor2: anchor)
@@ -74,9 +74,9 @@ public class AnchorGroup {
     /// The centerY anchor, corresponding to the `NSLayoutAttribute.CenterY` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var centerY: Anchor {
+    open var centerY: Anchor {
         get {
-            return Anchor(group: self, attribute: .CenterY)
+            return Anchor(group: self, attribute: .centerY)
         }
         set(anchor) {
             bindAnchors(centerY, anchor2: anchor)
@@ -86,7 +86,7 @@ public class AnchorGroup {
     ///
     /// - note: To be used with another `center` anchor
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var center: Anchor {
+    open var center: Anchor {
         get {
             return Anchor(group: self, anchors: [self.centerX, self.centerY])
         }
@@ -98,9 +98,9 @@ public class AnchorGroup {
     /// The top anchor, corresponding to the `NSLayoutAttribute.Top` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var top: Anchor {
+    open var top: Anchor {
         get {
-            return Anchor(group: self, attribute: .Top)
+            return Anchor(group: self, attribute: .top)
         }
         set(anchor) {
             bindAnchors(top, anchor2: anchor)
@@ -109,9 +109,9 @@ public class AnchorGroup {
     /// The bottom anchor, corresponding to the `NSLayoutAttribute.Bottom` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var bottom: Anchor {
+    open var bottom: Anchor {
         get {
-            return Anchor(group: self, attribute: .Bottom)
+            return Anchor(group: self, attribute: .bottom)
         }
         set(anchor) {
             bindAnchors(bottom, anchor2: anchor)
@@ -120,9 +120,9 @@ public class AnchorGroup {
     /// The leading anchor, corresponding to the `NSLayoutAttribute.Leading` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var leading: Anchor {
+    open var leading: Anchor {
         get {
-            return Anchor(group: self, attribute: .Leading)
+            return Anchor(group: self, attribute: .leading)
         }
         set(anchor) {
             bindAnchors(leading, anchor2: anchor)
@@ -131,9 +131,9 @@ public class AnchorGroup {
     /// The trailing anchor, corresponding to the `NSLayoutAttribute.Trailing` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var trailing: Anchor {
+    open var trailing: Anchor {
         get {
-            return Anchor(group: self, attribute: .Trailing)
+            return Anchor(group: self, attribute: .trailing)
         }
         set(anchor) {
             bindAnchors(trailing, anchor2: anchor)
@@ -145,7 +145,7 @@ public class AnchorGroup {
     ///
     /// - note: To be used with another `fill` anchor
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var fill: Anchor {
+    open var fill: Anchor {
         get {
             return Anchor(group: self, anchors: [self.top, self.bottom, self.leading, self.trailing])
         }
@@ -157,9 +157,9 @@ public class AnchorGroup {
     /// The width anchor, corresponding to the `NSLayoutAttribute.Width` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var width: Anchor {
+    open var width: Anchor {
         get {
-            return Anchor(group: self, attribute: .Width)
+            return Anchor(group: self, attribute: .width)
         }
         set(anchor) {
             bindAnchors(width, anchor2: anchor)
@@ -168,9 +168,9 @@ public class AnchorGroup {
     /// The height anchor, corresponding to the `NSLayoutAttribute.Height` attribute
     ///
     /// - seealso: `NSLayoutAttribute` for a full description of the attributes.
-    public var height: Anchor {
+    open var height: Anchor {
         get {
-            return Anchor(group: self, attribute: .Height)
+            return Anchor(group: self, attribute: .height)
         }
         set(anchor) {
             bindAnchors(height, anchor2: anchor)
@@ -182,7 +182,7 @@ public class AnchorGroup {
         parent = view
     }
 
-    private func bindAnchors(anchor1: Anchor, anchor2: Anchor)
+    fileprivate func bindAnchors(_ anchor1: Anchor, anchor2: Anchor)
     {
         if let commonAncestor = findCommonAncestor(anchor1, anchor2: anchor2)
         {
@@ -243,15 +243,24 @@ public class AnchorGroup {
         }
     }
 
-    private func createConstraintWithAncestor(ancestor: UIView, anchor1: Anchor, anchor2: Anchor)
+    fileprivate func createConstraintWithAncestor(_ ancestor: UIView, anchor1: Anchor, anchor2: Anchor)
     {
-        let constraint = NSLayoutConstraint(item: parent, attribute: anchor1.attribute, relatedBy: anchor2.relation, toItem: anchor2.group?.parent, attribute: anchor2.attribute, multiplier: CGFloat(anchor2.multiplier), constant: CGFloat(anchor2.constant))
+        let constraint = NSLayoutConstraint(
+            item: parent,
+            attribute: anchor1.attribute,
+            relatedBy: anchor2.relation,
+            toItem: anchor2.group?.parent,
+            attribute: anchor2.attribute,
+            multiplier: CGFloat(anchor2.multiplier),
+            constant: CGFloat(anchor2.constant)
+        )
+        
         parent.translatesAutoresizingMaskIntoConstraints = false
         constraint.priority = anchor2.priority
         ancestor.addConstraint(constraint)
     }
 
-    private func findCommonAncestor(anchor1: Anchor, anchor2: Anchor) -> UIView?
+    fileprivate func findCommonAncestor(_ anchor1: Anchor, anchor2: Anchor) -> UIView?
     {
         if let commonAncestor = anchor2.commonAncestor
         {
@@ -274,7 +283,7 @@ public class AnchorGroup {
                 }
             }
         }
-        else if anchor2.attribute == .NotAnAttribute
+        else if anchor2.attribute == .notAnAttribute
         {
             return parent
         }
@@ -282,11 +291,11 @@ public class AnchorGroup {
         return nil
     }
 
-    private func findConstraintWithAncestor(commonAncestor: UIView, anchor1: Anchor, anchor2: Anchor) -> (constraint: NSLayoutConstraint, reversed: Bool)?
+    fileprivate func findConstraintWithAncestor(_ commonAncestor: UIView, anchor1: Anchor, anchor2: Anchor) -> (constraint: NSLayoutConstraint, reversed: Bool)?
     {
         var reversed = false
 
-        if let constraintIndex = commonAncestor.constraints.indexOf({
+        if let constraintIndex = commonAncestor.constraints.index(where: {
             let sameFirst: Bool = $0.firstItem as? UIView == self.parent && $0.firstAttribute == anchor1.attribute
             let sameSecond: Bool = $0.secondItem as? UIView == anchor2.group?.parent && $0.secondAttribute == anchor2.attribute
 
@@ -313,13 +322,13 @@ public class AnchorGroup {
     }
 }
 
-public class Anchor {
+open class Anchor {
     internal var group: AnchorGroup?
     internal let attribute: NSLayoutAttribute
     internal var constant: Double = 0
     internal var multiplier: Double = 1
     internal var commonAncestor: UIView?
-    internal var relation: NSLayoutRelation = .Equal
+    internal var relation: NSLayoutRelation = .equal
     internal var priority: Float = 1000
     internal var reset: Bool = false
     internal var creation: Bool = false
@@ -332,21 +341,21 @@ public class Anchor {
         self.attribute = attribute
     }
 
-    private init(group: AnchorGroup, anchors: [Anchor])
+    fileprivate init(group: AnchorGroup, anchors: [Anchor])
     {
         self.group = group
         self.anchors = anchors
-        self.attribute = .NotAnAttribute
+        self.attribute = .notAnAttribute
     }
 
-    private init()
+    fileprivate init()
     {
-        self.attribute = .NotAnAttribute
+        self.attribute = .notAnAttribute
     }
 
-    private func copyTo(anchor: Anchor)
+    fileprivate func copyTo(_ anchor: Anchor)
     {
-        anchor.constant = anchor.attribute == .Trailing || anchor.attribute == .Bottom ? -constant : constant
+        anchor.constant = anchor.attribute == .trailing || anchor.attribute == .bottom ? -constant : constant
         anchor.multiplier = multiplier
         anchor.commonAncestor = commonAncestor
         anchor.relation = relation
@@ -363,63 +372,63 @@ public class Anchor {
     /// - parameters:
     ///   - UIView?: The first common ancestor
     /// - returns: The anchor to allow chainable calls
-    public func ancestor(ancestor: UIView?) -> Anchor
+    open func ancestor(_ ancestor: UIView?) -> Anchor
     {
         commonAncestor = ancestor
         return self
     }
 
-    /// Sets the constraint's relation to .Equal.
+    /// Sets the constraint's relation to .equal.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
     /// - returns: The anchor to allow chainable calls
-    public func equal() -> Anchor
+    open func equal() -> Anchor
     {
-        relation = .Equal
+        relation = .equal
         return self
     }
 
-    /// Sets the constraint's relation to .GreaterThanOrEqual.
+    /// Sets the constraint's relation to .greaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
     /// - returns: The anchor to allow chainable calls
-    public func greaterThanOrEqual() -> Anchor
+    open func greaterThanOrEqual() -> Anchor
     {
-        relation = .GreaterThanOrEqual
+        relation = .greaterThanOrEqual
         return self
     }
 
-    /// Sets the constraint's relation to .GreaterThanOrEqual.
+    /// Sets the constraint's relation to .greaterThanOrEqual.
     ///
     /// This method is one of the three methods that allow you to configure the relation (`NSLayoutRelation`) between two constraint:
-    /// - `lessThanOrEqual`: `.LessThanOrEqual`
-    /// - `equal`: `.Equal`
-    /// - `greaterThanOrEqual`: `.GreaterThanOrEqual`
+    /// - `lessThanOrEqual`: `.lessThanOrEqual`
+    /// - `equal`: `.equal`
+    /// - `greaterThanOrEqual`: `.greaterThanOrEqual`
     ///
-    /// Anchors always defaults to Equal.
+    /// Anchors always defaults to equal.
     ///
     /// - seealso: `relation` property from `NSLayoutConstraint`, for a full description of the relation.
     ///
     /// - returns: The anchor to allow chainable calls
-    public func lessThanOrEqual() -> Anchor
+    open func lessThanOrEqual() -> Anchor
     {
-        relation = .LessThanOrEqual
+        relation = .lessThanOrEqual
         return self
     }
 
@@ -432,7 +441,7 @@ public class Anchor {
     /// - parameters:
     ///   - Float: The priority to use to update the constraint
     /// - returns: The anchor to allow chainable calls
-    public func priority(priority: Float) -> Anchor
+    open func priority(_ priority: Float) -> Anchor
     {
         self.priority = priority
         return self
@@ -443,7 +452,7 @@ public class Anchor {
     /// - seealso: `removeConstraint` method from `UIView`.
     ///
     /// - returns: The anchor to allow chainable calls
-    public func remove() -> Anchor
+    open func remove() -> Anchor
     {
         self.reset = true
         return self
@@ -452,7 +461,7 @@ public class Anchor {
     /// Optimize the constraint to be created.
     ///
     /// - returns: The anchor to allow chainable calls
-    public func create() -> Anchor
+    open func create() -> Anchor
     {
         self.creation = true
         return self
@@ -464,9 +473,9 @@ public class Anchor {
     ///
     /// For instance, if you want to set the width of the `UIView` to 40:
     ///     // Set the width to 40
-    ///     view.anchors.width = 40 + Anchor.Myself
+    ///     view.anchors.width = 40 + Anchor.myself
     ///
-    public static var Myself: Anchor {return Anchor()}
+    open static var myself: Anchor {return Anchor()}
 }
 
 public func +(anchor: Anchor, constant: Double) -> Anchor

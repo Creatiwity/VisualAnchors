@@ -11,11 +11,11 @@ import VisualAnchors
 
 class ViewController: UIViewController {
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let greenView = UIView()
-        greenView.backgroundColor = UIColor.greenColor()
+        greenView.backgroundColor = .green
         
         // Must be done before adding constraints
         view.addSubview(greenView)
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         greenView.anchors.fill = 10 + view.anchors.fill.ancestor(view)
         
         let redView = UIView()
-        redView.backgroundColor = UIColor.redColor()
+        redView.backgroundColor = .red
         greenView.addSubview(redView)
         
         // Centers redView in greenView
