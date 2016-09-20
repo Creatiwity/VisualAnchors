@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "VisualAnchors"
-  s.version          = "1.1.0"
-  s.summary          = "An easier way to programmatically use constraints in Swift with iOS8+."
+  s.name             = 'VisualAnchors'
+  s.version          = '1.2.0.beta.1'
+  s.summary          = 'An easier way to programmatically use constraints in Swift with iOS8+.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -23,22 +23,15 @@ VisualAnchors is a library that aims to allow developers to programmatically use
 It extends UIView by adding an attribute containing the anchors of the view (leading, trailing, top, ...). You just have to assign an anchor to an other following the notation `anchor1 = constant + anchor2 * multiplier`.
                        DESC
 
-  s.homepage         = "https://github.com/Creatiwity/VisualAnchors"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = 'https://github.com/Creatiwity/VisualAnchors'
   s.license          = 'MIT'
-  s.author           = { "Julien Blatecky" => "julien.blatecky@creatiwity.net" }
-  s.source           = { :git => "https://github.com/Creatiwity/VisualAnchors.git", :tag => s.version.to_s }
+  s.author           = { 'Julien Blatecky' => 'julien.blatecky@creatiwity.net' }
+  s.source           = { :git => 'https://github.com/Creatiwity/VisualAnchors.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/CreatiwitySAS'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'VisualAnchors/Classes/**/*'
+  s.source_files = 'VisualAnchors/Classes/*.swift'
 
-  # s.resource_bundles = {
-  #   'VisualAnchors' => ['VisualAnchors/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
