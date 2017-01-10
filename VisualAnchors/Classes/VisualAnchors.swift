@@ -304,12 +304,12 @@ open class AnchorGroup {
                 let sameFirstReversed: Bool = $0.firstItem as? UIView == anchor2.group?.parent && $0.firstAttribute == anchor2.attribute
                 let sameSecondReversed: Bool = $0.secondItem as? UIView == self.parent && $0.secondAttribute == anchor1.attribute
                 reversed = true
-                return sameFirstReversed && sameSecondReversed
+                return sameFirstReversed && sameSecondReversed && $0.relation == anchor2.relation
             }
             else
             {
                 reversed = false
-                return true
+                return $0.relation == anchor2.relation
             }
         })
         {

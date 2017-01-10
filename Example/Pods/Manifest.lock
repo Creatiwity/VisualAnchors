@@ -1,5 +1,5 @@
 PODS:
-  - VisualAnchors (2.0.0)
+  - VisualAnchors (2.1.0)
 
 DEPENDENCIES:
   - VisualAnchors (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  VisualAnchors: 1cc1df2c050d46ee20f89490ff51b640d4ef1434
+  VisualAnchors: d16524d7a0dc4b692633f41569028c11512c7acf
 
 PODFILE CHECKSUM: 38c878b39290127109419ce0abcd853c0d9f9cd6
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1
