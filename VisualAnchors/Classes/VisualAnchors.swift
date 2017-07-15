@@ -221,7 +221,7 @@ open class AnchorGroup {
                     }
                     else if let (constraint, reversed) = findConstraintWithAncestor(commonAncestor, anchor1: anchor1, anchor2: anchor2)
                     {
-                        if reversed || constraint.relation != anchor2.relation || constraint.multiplier != CGFloat(anchor2.multiplier) || constraint.priority != anchor2.priority
+                        if reversed || constraint.relation != anchor2.relation || constraint.multiplier != CGFloat(anchor2.multiplier) || constraint.priority.rawValue != anchor2.priority
                         {
                             // Replace existing constraint
                             commonAncestor.removeConstraint(constraint)
@@ -256,7 +256,7 @@ open class AnchorGroup {
         )
         
         parent.translatesAutoresizingMaskIntoConstraints = false
-        constraint.priority = anchor2.priority
+        constraint.priority = UILayoutPriority(rawValue: anchor2.priority)
         ancestor.addConstraint(constraint)
     }
 
