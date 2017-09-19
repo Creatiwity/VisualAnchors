@@ -329,7 +329,7 @@ open class Anchor {
     internal var multiplier: Double = 1
     internal var commonAncestor: UIView?
     internal var relation: NSLayoutRelation = .equal
-    internal var priority: Float = 1000
+    internal var priority: UILayoutPriority = .required
     internal var reset: Bool = false
     internal var creation: Bool = false
 
@@ -441,7 +441,7 @@ open class Anchor {
     /// - parameters:
     ///   - Float: The priority to use to update the constraint
     /// - returns: The anchor to allow chainable calls
-    open func priority(_ priority: Float) -> Anchor
+    open func priority(_ priority: UILayoutPriority) -> Anchor
     {
         self.priority = priority
         return self
