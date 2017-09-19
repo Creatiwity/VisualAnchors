@@ -13,7 +13,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - iOS 8+
-- Swift 3.0
+- Swift 4.0
 
 ## Installation
 
@@ -37,7 +37,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/Creatiwity/VisualAnchors.git", majorVersion: 2)
+        .Package(url: "https://github.com/Creatiwity/VisualAnchors.git", majorVersion: 3)
     ]
 )
 ```
