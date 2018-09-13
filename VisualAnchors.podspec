@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VisualAnchors'
-  s.version          = '3.0.0'
-  s.summary          = 'An easier way to programmatically use constraints in Swift with iOS8+.'
+  s.version          = '4.0.0'
+  s.summary          = 'An easier way to programmatically use constraints in Swift with iOS9+.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -29,7 +29,7 @@ It extends UIView by adding an attribute containing the anchors of the view (lea
   s.source           = { :git => 'https://github.com/Creatiwity/VisualAnchors.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/CreatiwitySAS'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'VisualAnchors/Classes/*.swift'
 
